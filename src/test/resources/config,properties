@@ -1,0 +1,5 @@
+Browser=Chrome
+URL=https://www.amazon.in/
+Incognito=true
+ImplicitWait=10
+Pageloadtimeout=10
