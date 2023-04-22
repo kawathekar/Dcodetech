@@ -9,7 +9,7 @@ import Utilities.BaseTest;
 public class Login_Test_Cases extends BaseTest{
 	
 	@Test
-	public static void TC_01_Login_Positive_Google() {
+	public static void TC_01_Most_Active_Stock() {
 		BasePage_MoneyControl.Stock_Action_Stock_Price();
 	}
 
