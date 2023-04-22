@@ -1,12 +1,11 @@
 package Tests;
 
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Pages.LandingPage;
 import Utilities.BaseTest;
 
-@Listeners(BaseTest.class)
+
 public class LandingPageTest extends LandingPage{
 	
 	@Test

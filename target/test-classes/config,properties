@@ -1,5 +1,5 @@
 Browser=Chrome
-URL=https://www.amazon.in/
-Incognito=true
+URL=https://www.moneycontrol.com/
+Incognito=false
 ImplicitWait=10
-Pageloadtimeout=10
+Pageloadtimeout=30
