@@ -43,10 +43,16 @@ public class BaseTest implements ITestListener{
 	private Properties ObjConfig;
 	protected static WebDriver driver;
 	
+	/*@Method = IntializeWebdriver
+	 * @Parameter = None
+	 * @Description = Intitialize browsers according to properties file and URL
+	*/
 	@BeforeMethod
 	public WebDriver intializeWebdriver() throws FileNotFoundException, IOException {
 		this.ObjConfig = new Properties();
 		this.ObjConfig
+				/* User.dir is dynamic path of the project of that class
+				*/
 				.load(new FileInputStream(System.getProperty("user.dir") 
 						+ "/src/test/resources/config,properties"));
 		try {

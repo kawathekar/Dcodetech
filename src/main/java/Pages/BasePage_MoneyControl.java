@@ -12,6 +12,7 @@ import Utilities.TestUtilities;
 
 public class BasePage_MoneyControl extends BaseTest{
 	
+	// Page Factory for the Page
 	//Element
 	private static By Login = By.xpath("//a[contains(text(),'Hello, Login')]"); 
 	private static By Usernameavail = By.xpath("//span[@class='usr_nm']");
@@ -61,11 +62,10 @@ public class BasePage_MoneyControl extends BaseTest{
 		Assert.assertTrue(Username1.endsWith("Kawathekar"), "Username ends with Kawathekar");
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static void Stock_Action_Stock_Price() {
 		TestUtilities.ScrolltoElment(StockAction);
 		Set <String>AllText = TestUtilities.gettext_table(Table_TopGainers);
-		Assert.assertTrue(AllText.contains("Axis Bank"));
+		Assert.assertTrue(AllText.contains("Axis Bank"), "Table contains Axis Bank");
 	}
 	
 	public static void Top_Gainers_Stock_Price() {

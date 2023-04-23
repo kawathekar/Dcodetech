@@ -1,5 +1,5 @@
-Browser=Chrome
+Browser=CHrome
 URL=https://www.moneycontrol.com/
-Incognito=false
+Incognito=TRUE
 ImplicitWait=10
 Pageloadtimeout=30

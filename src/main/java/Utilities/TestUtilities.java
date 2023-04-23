@@ -28,14 +28,7 @@ public class TestUtilities extends BaseTest{
 	}	
 
 	public static boolean ScrolltoElment ( By Locator) {
-	
-		//Declare and initialise a implicit wait
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
-		//This is the pollintime which will be observed till the wait.
-		wait.pollingEvery(Duration.ofMillis(1000));
-		//This is how we specify the condition to wait on.
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(Locator));
-		
+		wait(Locator);
 		WebElement element = driver.findElement(Locator);
 		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		return true;
@@ -43,8 +36,7 @@ public class TestUtilities extends BaseTest{
 	
 	
 	public static boolean wait ( By Locator) {
-		
-		//Declare and initialise a implicit wait
+		//Declare and initialise a explicit wait
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
 		//This is the pollintime which will be observed till the wait.
 		wait.pollingEvery(Duration.ofMillis(1000));
@@ -85,14 +77,13 @@ public class TestUtilities extends BaseTest{
         List<WebElement> columnsList = null;
         Set<String> set = new HashSet<String>();
        for (WebElement row : rowsList) {
-               System.out.println();
                //System.out.print("This is Row "+row.getText() + ",");
                columnsList = row.findElements(By.tagName("td"));
               for (WebElement column : columnsList) {
             	   System.out.print(column.getText() + ",");
             	   set.add(column.getText());
               }
-       		  }System.out.println(set.contains("SBI"));
+       		  }
        		  return set;
 			  }
 	}
