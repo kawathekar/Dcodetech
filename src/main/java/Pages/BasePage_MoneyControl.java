@@ -20,6 +20,11 @@ public class BasePage_MoneyControl extends BaseTest{
 	private static By TopGains = By.xpath("//body/div[@id='mc_mainWrapper']"
 			+ "/section[1]/div[1]/div[3]/aside[1]/div[11]/div[3]/div[2]/div[2]"
 			+ "/div[1]/div[2]/div[1]/h2[1]/a[1]");
+	private static By PersonalFinance = By.xpath("//header/div[1]/div[3]/nav[1]/div[1]/"
+			+ "ul[1]/li[8]/a[1]/span[1]");
+	private static By Banking  = By.xpath("//header/div[1]/div[3]/nav[1]/div[1]"
+			+ "/ul[1]/li[8]/div[1]/div[1]/ul[1]/li[1]/ul[1]/li[5]/a[1]");
+	private static By Explainer = By.xpath("//h2[contains(text(),'Explainer')]");
 	
 	//Input
 	private static By UsernameInput = By.xpath("/html/body/div[1]/div/div[3]/div[1]/"
@@ -57,7 +62,7 @@ public class BasePage_MoneyControl extends BaseTest{
 		driver.findElement(PasswordInput).click();
 		driver.findElement(PasswordInput).sendKeys(Password);
 		driver.findElement(LoginButtonActive).click();
-		TestUtilities.wait(Usernameavail);
+		//TestUtilities.wait(Usernameavail);
 		String Username1 = driver.findElement(Usernameavail).getText();
 		Assert.assertTrue(Username1.endsWith("Kawathekar"), "Username ends with Kawathekar");
 	}
@@ -70,7 +75,13 @@ public class BasePage_MoneyControl extends BaseTest{
 	
 	public static void Top_Gainers_Stock_Price() {
 		TestUtilities.ScrolltoElment(TopGains);
-		TestUtilities.SelectDropdown_Single(Exchange_TopGainers, "Index", "2");
-		
+		TestUtilities.SelectDropdown_Single(Exchange_TopGainers, "Text", "Sensex");
+	}
+	
+	public static void Personal_Finaance (){
+		TestUtilities.MouseHover(PersonalFinance);
+		TestUtilities.wait_visibility(Banking);
+		driver.findElement(Banking).click();
+		TestUtilities.ScrolltoElment(Explainer);
 	}
 }

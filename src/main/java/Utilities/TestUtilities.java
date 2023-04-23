@@ -13,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,23 +29,39 @@ public class TestUtilities extends BaseTest{
 	}	
 
 	public static boolean ScrolltoElment ( By Locator) {
-		wait(Locator);
+		wait_visibility(Locator);
 		WebElement element = driver.findElement(Locator);
 		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		return true;
 	}
 	
+	public static void MouseHover(By Locator) {
+		Actions actions = new Actions(driver);
+		WebElement Hoverignto = driver.findElement(Locator);
+		actions.moveToElement(Hoverignto).perform();
+	}
 	
-	public static boolean wait ( By Locator) {
+	
+	public static boolean wait_Selection ( By Locator) {
 		//Declare and initialise a explicit wait
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
 		//This is the pollintime which will be observed till the wait.
 		wait.pollingEvery(Duration.ofMillis(1000));
 		//This is how we specify the condition to wait on.
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Locator));
 		wait.until(ExpectedConditions.elementToBeSelected(Locator));
 		return true;
 	}
+	
+	public static boolean wait_visibility ( By Locator) {
+		//Declare and initialise a explicit wait
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
+		//This is the pollintime which will be observed till the wait.
+		wait.pollingEvery(Duration.ofMillis(1000));
+		//This is how we specify the condition to wait on.
+		wait.until(ExpectedConditions.elementToBeClickable(Locator));
+		return true;
+	}
+	
 	
 	
 	public static boolean SwitchingFrame ( String Locator , String value ) {

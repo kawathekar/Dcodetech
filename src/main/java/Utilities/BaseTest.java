@@ -27,8 +27,11 @@ public class BaseTest implements ITestListener{
 	
 	  @Override public void onTestFailure(ITestResult Result) {
 	  System.out.println("The name of the testcase Failed is :"+Result.getName());
-	  try { TestUtilities.capturescreenshot(Result.getName()); } catch (Exception
-	  e) { }
+	  try { 
+		  TestUtilities.capturescreenshot(Result.getName()); 
+		  } catch (Exception e) {
+			  
+		  }
 	  
 	  }
 	  
@@ -94,7 +97,8 @@ public class BaseTest implements ITestListener{
 	
 	  @AfterMethod
 	  public void teardown() { 
-		  driver.close(); driver.quit(); 
+		  driver.close(); 
+		  driver.quit(); 
 		  }
 	 
 	}
